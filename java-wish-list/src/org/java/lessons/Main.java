@@ -36,7 +36,7 @@ public class Main {
 		}
 
 		
-		
+		sc.close();
 		System.out.println("Lista regali\n");
 
 		for (Gift gift : gifts) {
