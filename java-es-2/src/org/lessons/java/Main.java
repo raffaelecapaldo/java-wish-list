@@ -3,6 +3,7 @@ package org.lessons.java;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -29,8 +30,19 @@ public class Main {
 			Integer n = charCounter.get(key);
 			System.out.println(key + ":" + n);
 		}
+		
+		
+		//LAMBDA
+		Map<Character,Integer> charCounter2 = charCounter.keySet().stream()//Apri stream sul keyset precedentemente ottenuto
+				.collect(Collectors.groupingBy(k -> k, Collectors.summingInt(i -> 1))); //raggruppa tutte le key uguali sommando di 1 per ogni nuova key nell'insieme
+
+		System.out.println("\nBonus\n");
+		
+		for (Character key : charCounter2.keySet()) {
+			Integer n = charCounter2.get(key);
+			System.out.println(key + ":" + n);
 		}
 		
 	
 
-}
+}}
