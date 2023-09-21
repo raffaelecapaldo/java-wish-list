@@ -38,7 +38,7 @@ public class Main {
 		Stream<Character> charStream = word.chars()
 			    .mapToObj(c -> (char) c); //Creazione stream da Stringa
 					//Creazione Map con caratteri raggruppati e conteggio dei caratteri
-		Map<Character, Long> charCounter2 = charStream.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+		Map<Character, Long> charCounter2 = charStream.collect(Collectors.groupingBy(c -> c, Collectors.counting()));
 
 		System.out.println("\nBonus\n");
 		
