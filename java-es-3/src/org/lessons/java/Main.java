@@ -8,13 +8,17 @@ public class Main {
 		
 		CiclaInteri ciclatore = new CiclaInteri(interi);
 		
-		System.out.println(ciclatore.getElementoSuccessivo());
-		System.out.println(ciclatore.getElementoSuccessivo());
-		System.out.println(ciclatore.getElementoSuccessivo());
-		System.out.println(ciclatore.getElementoSuccessivo());
-		System.out.println(ciclatore.hasAncoraElementi());
-		System.out.println(ciclatore.getElementoSuccessivo());
-		System.out.println(ciclatore.hasAncoraElementi());
+		while(ciclatore.hasAncoraElementi()) {
+			System.out.println(ciclatore.getElementoSuccessivo());
+		}
+		
+		CiclaInteri ciclatoreVuoto = new CiclaInteri();
+		ciclatoreVuoto.addElemento(3);
+		ciclatoreVuoto.addElemento(6);
+		ciclatoreVuoto.addElemento(15);
+		while (ciclatoreVuoto.hasAncoraElementi()) {
+			System.out.println(ciclatoreVuoto.getElementoSuccessivo());
+		}
 
 		
 		}
