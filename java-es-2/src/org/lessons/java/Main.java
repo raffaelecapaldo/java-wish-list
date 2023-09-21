@@ -3,7 +3,9 @@ package org.lessons.java;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Main {
 
@@ -33,13 +35,15 @@ public class Main {
 		
 		
 		//LAMBDA
-		Map<Character,Integer> charCounter2 = charCounter.keySet().stream()//Apri stream sul keyset precedentemente ottenuto
-				.collect(Collectors.groupingBy(k -> k, Collectors.summingInt(i -> 1))); //raggruppa tutte le key uguali sommando di 1 per ogni nuova key nell'insieme
+		Stream<Character> charStream = word.chars()
+			    .mapToObj(c -> (char) c); //Creazione stream da Stringa
+					//Creazione Map con caratteri raggruppati e conteggio dei caratteri
+		Map<Character, Long> charCounter2 = charStream.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
 		System.out.println("\nBonus\n");
 		
 		for (Character key : charCounter2.keySet()) {
-			Integer n = charCounter2.get(key);
+			Long n = charCounter2.get(key);
 			System.out.println(key + ":" + n);
 		}
 		
